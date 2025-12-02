@@ -1792,21 +1792,34 @@
                         isValid = false;
                     }
                     
-                    if (isValid) {
-                        // Show success message
-                        const originalText = modalSubmitBtn.innerHTML;
-                        modalSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-                        modalSubmitBtn.disabled = true;
-                        
-                        // Simulate form submission
-                        setTimeout(() => {
-                            alert('Thank you for your booking inquiry! We will contact you within 24 hours to confirm availability and provide payment details.');
-                            bookingForm.reset();
-                            closeBookingModal();
-                            modalSubmitBtn.innerHTML = originalText;
-                            modalSubmitBtn.disabled = false;
-                        }, 1500);
-                    } else {
+                   if (isValid) {
+    // Show success message
+    const originalText = modalSubmitBtn.innerHTML;
+    modalSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+    modalSubmitBtn.disabled = true;
+    
+    // Collect form data
+    const packageName = 'Kalahari Desert Expedition';
+    const packageDuration = '6 Days / 5 Nights';
+    const packagePrice = '$2,150 per person';
+    const travelerCount = document.getElementById('bookingTravelers').value;
+    const preferredMonth = document.getElementById('bookingMonth').value;
+    const preferredYear = document.getElementById('bookingYear').value;
+    
+    // Simulate form submission
+    setTimeout(() => {
+        // Redirect to thank you page with parameters
+        const params = new URLSearchParams({
+            package: packageName,
+            duration: packageDuration,
+            travelers: `${travelerCount} ${travelerCount === '1' ? 'Traveler' : 'Travelers'}`,
+            dates: `${preferredMonth} ${preferredYear}`,
+            price: packagePrice
+        });
+        
+        window.location.href = `booking-thank-you.html?${params.toString()}`;
+    }, 1500);
+} else {
                         alert('Please fill in all required fields correctly.');
                     }
                 });
