@@ -1562,168 +1562,210 @@
         </div>
     </div>
 
-    <script>
-        // ===== HEADER SCROLL EFFECT =====
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+   <script>
+    // ===== HEADER SCROLL EFFECT =====
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 
-        // ===== MOBILE MENU =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mainNav = document.getElementById('mainNav');
+    // ===== MOBILE MENU =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
 
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (mainNav.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-
-                // Close mobile menu when clicking a link
-                document.querySelectorAll('nav a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        mainNav.classList.remove('active');
-                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                    });
-                });
-            }
-
-            // ===== BOOKING MODAL =====
-            const bookingModal = document.getElementById('bookingModal');
-            const bookNowBtn = document.getElementById('bookNowBtn');
-            const ctaBookBtn = document.getElementById('ctaBookBtn');
-            const modalClose = document.getElementById('modalClose');
-            const modalCancelBtn = document.getElementById('modalCancelBtn');
-            const modalSubmitBtn = document.getElementById('modalSubmitBtn');
-            const bookingForm = document.getElementById('bookingForm');
-
-            // Function to open modal
-            function openBookingModal() {
-                bookingModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-
-            // Function to close modal
-            function closeBookingModal() {
-                bookingModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-
-            // Open modal when clicking book buttons
-            if (bookNowBtn) {
-                bookNowBtn.addEventListener('click', openBookingModal);
-            }
-
-            if (ctaBookBtn) {
-                ctaBookBtn.addEventListener('click', openBookingModal);
-            }
-
-            // Close modal when clicking close/cancel buttons
-            if (modalClose) {
-                modalClose.addEventListener('click', closeBookingModal);
-            }
-
-            if (modalCancelBtn) {
-                modalCancelBtn.addEventListener('click', closeBookingModal);
-            }
-
-            // Close modal when clicking outside modal content
-            bookingModal.addEventListener('click', function(e) {
-                if (e.target === bookingModal) {
-                    closeBookingModal();
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
             });
 
-            // Handle form submission
-            if (modalSubmitBtn) {
-                modalSubmitBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+        }
+
+        // ===== BOOKING MODAL =====
+        const bookingModal = document.getElementById('bookingModal');
+        const bookNowBtn = document.getElementById('bookNowBtn');
+        const ctaBookBtn = document.getElementById('ctaBookBtn');
+        const modalClose = document.getElementById('modalClose');
+        const modalCancelBtn = document.getElementById('modalCancelBtn');
+        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
+        const bookingForm = document.getElementById('bookingForm');
+
+        // Function to open modal
+        function openBookingModal() {
+            bookingModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close modal
+        function closeBookingModal() {
+            bookingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Open modal when clicking book buttons
+        if (bookNowBtn) {
+            bookNowBtn.addEventListener('click', openBookingModal);
+        }
+
+        if (ctaBookBtn) {
+            ctaBookBtn.addEventListener('click', openBookingModal);
+        }
+
+        // Close modal when clicking close/cancel buttons
+        if (modalClose) {
+            modalClose.addEventListener('click', closeBookingModal);
+        }
+
+        if (modalCancelBtn) {
+            modalCancelBtn.addEventListener('click', closeBookingModal);
+        }
+
+        // Close modal when clicking outside modal content
+        bookingModal.addEventListener('click', function(e) {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+
+        // Calculate total price based on number of travelers
+        function calculateTotalPrice(travelers, basePrice = 3950) {
+            const travelerCount = parseInt(travelers) || 2;
+            return travelerCount * basePrice;
+        }
+
+        // Handle form submission - redirect to thank you page
+        if (modalSubmitBtn) {
+            modalSubmitBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Basic form validation
+                let isValid = true;
+                const requiredFields = bookingForm.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.style.borderColor = '#ff6b6b';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                // Check terms checkbox
+                const termsCheckbox = document.getElementById('bookingTerms');
+                if (!termsCheckbox.checked) {
+                    alert('Please agree to the Terms & Conditions.');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Get form values
+                    const firstName = document.getElementById('bookingFirstName').value;
+                    const lastName = document.getElementById('bookingLastName').value;
+                    const email = document.getElementById('bookingEmail').value;
+                    const phone = document.getElementById('bookingPhone').value;
+                    const country = document.getElementById('bookingCountry').value;
+                    const travelers = document.getElementById('bookingTravelers').value;
+                    const month = document.getElementById('bookingMonth').value;
+                    const year = document.getElementById('bookingYear').value;
+                    const notes = document.getElementById('bookingNotes').value;
                     
-                    // Basic form validation
-                    let isValid = true;
-                    const requiredFields = bookingForm.querySelectorAll('[required]');
+                    // Calculate total price
+                    const basePrice = 3950;
+                    const travelerCount = travelers === '5+' ? 5 : parseInt(travelers);
+                    const totalPrice = calculateTotalPrice(travelerCount, basePrice);
                     
-                    requiredFields.forEach(field => {
-                        if (!field.value.trim()) {
-                            field.style.borderColor = '#ff6b6b';
-                            isValid = false;
-                        } else {
-                            field.style.borderColor = '#ddd';
-                        }
+                    // Prepare URL parameters for thank you page
+                    const params = new URLSearchParams({
+                        package: 'Botswana Highlights Combo',
+                        duration: '10 Days / 9 Nights',
+                        travelers: travelers === '5+' ? '5+ Travelers' : travelers + ' Traveler(s)',
+                        dates: `${month} ${year}`,
+                        price: `$${totalPrice.toLocaleString()}`
                     });
                     
-                    // Check terms checkbox
-                    const termsCheckbox = document.getElementById('bookingTerms');
-                    if (!termsCheckbox.checked) {
-                        alert('Please agree to the Terms & Conditions.');
-                        isValid = false;
-                    }
+                    // Store form data in localStorage for thank you page (optional)
+                    localStorage.setItem('bookingData', JSON.stringify({
+                        firstName,
+                        lastName,
+                        email,
+                        phone,
+                        country,
+                        travelers,
+                        month,
+                        year,
+                        notes,
+                        totalPrice
+                    }));
                     
-                    if (isValid) {
-                        // Show success message
-                        const originalText = modalSubmitBtn.innerHTML;
-                        modalSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-                        modalSubmitBtn.disabled = true;
-                        
-                        // Simulate form submission (in production, this would submit to server)
-                        setTimeout(() => {
-                            alert('Thank you for your booking inquiry! We will contact you within 24 hours to confirm availability and provide payment details.');
-                            bookingForm.reset();
-                            closeBookingModal();
-                            modalSubmitBtn.innerHTML = originalText;
-                            modalSubmitBtn.disabled = false;
-                        }, 1500);
-                    } else {
-                        alert('Please fill in all required fields correctly.');
-                    }
-                });
-            }
-
-            // Real-time validation
-            const formInputs = bookingForm.querySelectorAll('.form-control');
-            formInputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    if (this.value.trim()) {
-                        this.style.borderColor = '#ddd';
-                    }
-                });
+                    // Show loading state
+                    const originalText = modalSubmitBtn.innerHTML;
+                    modalSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                    modalSubmitBtn.disabled = true;
+                    
+                    // Simulate processing delay
+                    setTimeout(() => {
+                        // Redirect to thank you page with parameters
+                        window.location.href = `booking-thank-you.html?${params.toString()}`;
+                    }, 1500);
+                } else {
+                    alert('Please fill in all required fields correctly.');
+                }
             });
+        }
 
-            // ===== SMOOTH SCROLLING =====
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    if (href === '#') return;
-                    
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 100,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
+        // Real-time validation
+        const formInputs = bookingForm.querySelectorAll('.form-control');
+        formInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.style.borderColor = '#ddd';
+                }
             });
         });
-    </script>
+
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href === '#') return;
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
