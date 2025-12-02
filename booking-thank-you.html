@@ -1,0 +1,573 @@
+[file name]: booking-thank-you.html
+[file content begin]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - TRACKS ADVENTURE SAFARIS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-brown: #7A3E1E;
+            --dark-brown: #4A2C1A;
+            --light-brown: #D4B59E;
+            --olive-green: #5A7D3E;
+            --dark-green: #3A5528;
+            --light-beige: #F8F4E8;
+            --gold: #C9A85E;
+            --gold-light: #E2C98D;
+            --white: #FFFFFF;
+            --black: #2C2C2C;
+            --gray: #666666;
+            --light-gray: #F0F0F0;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-hover: 0 15px 40px rgba(0,0,0,0.12);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--light-beige);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .thank-you-container {
+            background: white;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow-hover);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .confirmation-header {
+            background: linear-gradient(135deg, var(--dark-brown), var(--primary-brown));
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .confirmation-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.3;
+        }
+
+        .confirmation-icon {
+            font-size: 80px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .confirmation-header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            color: var(--gold);
+        }
+
+        .confirmation-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .confirmation-body {
+            padding: 50px 40px;
+        }
+
+        .booking-summary {
+            background: var(--light-beige);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--olive-green);
+        }
+
+        .booking-summary h3 {
+            color: var(--dark-brown);
+            margin-bottom: 25px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .booking-summary h3 i {
+            color: var(--olive-green);
+        }
+
+        .summary-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .detail-label {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-label i {
+            color: var(--olive-green);
+        }
+
+        .detail-value {
+            color: var(--dark-brown);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .price-total {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px dashed #ddd;
+        }
+
+        .price-total .detail-label {
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .price-total .detail-value {
+            font-size: 28px;
+            color: var(--olive-green);
+            font-weight: 700;
+        }
+
+        .next-steps {
+            margin-bottom: 40px;
+        }
+
+        .next-steps h3 {
+            color: var(--dark-brown);
+            margin-bottom: 25px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .next-steps h3 i {
+            color: var(--gold);
+        }
+
+        .steps-list {
+            list-style: none;
+            display: grid;
+            gap: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .step-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--gold);
+        }
+
+        .step-number {
+            background: var(--gold);
+            color: var(--dark-brown);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .step-content p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--light-beige), #f0ebdd);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-section h3 {
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item i {
+            color: var(--olive-green);
+            font-size: 20px;
+        }
+
+        .contact-item span {
+            color: var(--dark-brown);
+            font-weight: 500;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark-brown);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(201, 168, 94, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--olive-green), var(--dark-green));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 20px rgba(90, 125, 62, 0.3);
+        }
+
+        .confirmation-footer {
+            background: var(--dark-brown);
+            color: var(--white);
+            padding: 30px 40px;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .confirmation-footer p {
+            color: var(--light-brown);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .confirmation-footer .quote {
+            color: var(--gold);
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media (max-width: 768px) {
+            .confirmation-header {
+                padding: 40px 20px;
+            }
+            
+            .confirmation-header h1 {
+                font-size: 30px;
+            }
+            
+            .confirmation-body {
+                padding: 30px 20px;
+            }
+            
+            .summary-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-header h1 {
+                font-size: 26px;
+            }
+            
+            .confirmation-icon {
+                font-size: 60px;
+            }
+            
+            .detail-value {
+                font-size: 16px;
+            }
+            
+            .price-total .detail-value {
+                font-size: 24px;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="confirmation-header">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Booking Confirmation Received!</h1>
+            <p>Thank you for choosing TRACKS Adventure Safaris. Your safari adventure request has been successfully submitted.</p>
+        </div>
+        
+        <div class="confirmation-body">
+            <div class="booking-summary">
+                <h3><i class="fas fa-receipt"></i> Booking Summary</h3>
+                
+                <div class="summary-details">
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="fas fa-safari"></i> Safari Package</div>
+                        <div class="detail-value" id="packageName">Okavango Delta Explorer</div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="far fa-calendar"></i> Duration</div>
+                        <div class="detail-value" id="packageDuration">5 Days / 4 Nights</div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="fas fa-users"></i> Travelers</div>
+                        <div class="detail-value" id="travelerCount">2 Guests</div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label"><i class="fas fa-calendar-alt"></i> Preferred Dates</div>
+                        <div class="detail-value" id="preferredDates">July 2025</div>
+                    </div>
+                </div>
+                
+                <div class="price-total">
+                    <div class="detail-label">Estimated Total</div>
+                    <div class="detail-value" id="totalPrice">$3,700</div>
+                    <p style="color: var(--gray); font-size: 14px; margin-top: 5px;">*Final pricing will be confirmed in your detailed itinerary</p>
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <h3><i class="fas fa-list-check"></i> What Happens Next</h3>
+                
+                <ul class="steps-list">
+                    <li class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Booking Review</h4>
+                            <p>Our safari specialist will review your booking request and check availability within 24 hours.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Personalized Itinerary</h4>
+                            <p>We'll create a detailed day-by-day itinerary tailored to your preferences and confirm all arrangements.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Payment Details</h4>
+                            <p>You'll receive a confirmation email with payment instructions and a secure payment link.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Safari Preparation</h4>
+                            <p>After payment confirmation, we'll send you a comprehensive pre-safari information pack.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="contact-section">
+                <h3>Need Immediate Assistance?</h3>
+                <p style="color: var(--gray); margin-bottom: 25px;">Our team is available to answer any questions about your booking</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+267 72114790</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+267 72795629 (WhatsApp)</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>tracksadventuresafaris2016@gmail.com</span>
+                    </div>
+                </div>
+                
+                <p style="color: var(--gray); font-size: 14px; margin-top: 15px;">
+                    <i class="fas fa-clock"></i> Operating Hours: 7:00 AM - 7:00 PM (GMT+2)
+                </p>
+            </div>
+            
+            <div class="btn-container">
+                <a href="index.html" class="btn">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="index.html#packages" class="btn btn-primary">
+                    <i class="fas fa-safari"></i> Browse More Safaris
+                </a>
+                <a href="contact.html" class="btn">
+                    <i class="fas fa-headset"></i> Contact Support
+                </a>
+            </div>
+        </div>
+        
+        <div class="confirmation-footer">
+            <p>You will receive a confirmation email shortly with your booking details.</p>
+            <p>Check your spam folder if you don't see it within 30 minutes.</p>
+            <p class="quote">"Life is a safari, let's conquer it together"</p>
+        </div>
+    </div>
+
+    <script>
+        // Parse URL parameters to populate booking details
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Get booking details from URL parameters
+            const packageName = urlParams.get('package') || 'Safari Package';
+            const duration = urlParams.get('duration') || '5 Days / 4 Nights';
+            const travelers = urlParams.get('travelers') || '2 Guests';
+            const dates = urlParams.get('dates') || 'July 2025';
+            const price = urlParams.get('price') || '$3,700';
+            
+            // Update the page with booking details
+            document.getElementById('packageName').textContent = packageName;
+            document.getElementById('packageDuration').textContent = duration;
+            document.getElementById('travelerCount').textContent = travelers;
+            document.getElementById('preferredDates').textContent = dates;
+            document.getElementById('totalPrice').textContent = price;
+            
+            // If no parameters are passed, show default values
+            // You can customize this logic based on how you redirect from booking forms
+        });
+    </script>
+</body>
+</html>
+[file content end]
