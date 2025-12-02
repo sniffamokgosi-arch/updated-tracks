@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRACKS ADVENTURE SAFARIS & LODGES - Premium Botswana Safaris</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-brown: #7A3E1E;
+            --dark-brown: #4A2C1A;
+            --light-brown: #D4B59E;
+            --olive-green: #5A7D3E;
+            --dark-green: #3A5528;
+            --light-beige: #F8F4E8;
+            --gold: #C9A85E;
+            --gold-light: #E2C98D;
+            --white: #FFFFFF;
+            --black: #2C2C2C;
+            --gray: #666666;
+            --light-gray: #F0F0F0;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-hover: 0 15px 40px rgba(0,0,0,0.12);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--light-beige);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--dark-brown);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--olive-green));
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark-brown);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(201, 168, 94, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--olive-green), var(--dark-green));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 20px rgba(90, 125, 62, 0.3);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(74, 44, 26, 0.95);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            padding: 15px 0;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover .logo-image {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            color: var(--gold);
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 13px;
+            font-style: italic;
+            margin-top: -3px;
+            color: var(--light-beige);
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-brown);
+            min-width: 220px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            z-index: 1001;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .dropdown-content a {
+            color: var(--white);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--primary-brown);
+            padding-left: 25px;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Dropdown Divider & Custom Link */
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.2);
+            margin: 10px 0;
+        }
+
+        .custom-safari-link {
+            color: var(--gold) !important;
+            font-weight: 600 !important;
+        }
+
+        .custom-safari-link:hover {
+            background-color: rgba(201, 168, 94, 0.2) !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SLIDESHOW ===== */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 68px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .hero-buttons .btn {
+            padding: 18px 40px;
+            font-size: 17px;
+        }
+
+        .slide-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+        }
+
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slide-dot.active {
+            background-color: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 3;
+        }
+
+        .slide-nav-btn {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .slide-nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom right, var(--light-beige) 49%, var(--white) 50%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 36px;
+            color: var(--dark-brown);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .about-text h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--gray);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background: var(--light-beige);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--olive-green);
+        }
+
+        .feature-item h4 {
+            color: var(--dark-brown);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-item p {
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ===== SAFARI PACKAGES ===== */
+        .packages {
+            background-color: var(--light-beige);
+            position: relative;
+        }
+
+        .packages:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom right, var(--white) 49%, var(--light-beige) 50%);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .package-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--olive-green));
+            z-index: 1;
+        }
+
+        .package-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--dark-brown);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Custom Safari Card Special Styling */
+        .custom-safari-card {
+            border: 2px dashed var(--gold);
+            background: linear-gradient(135deg, var(--light-beige), #f5f0e4);
+        }
+
+        .custom-safari-card:before {
+            background: linear-gradient(to right, var(--gold), #e2c98d);
+        }
+
+        .custom-badge {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark-brown);
+            font-weight: 700;
+            padding: 10px 20px;
+        }
+
+        .custom-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(201, 168, 94, 0.2), rgba(90, 125, 62, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .custom-price span {
+            background: linear-gradient(135deg, var(--light-beige), #f5f0e4);
+            color: var(--primary-brown);
+            font-style: italic;
+        }
+
+        .custom-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark-brown);
+            font-weight: 700;
+        }
+
+        .custom-btn:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            box-shadow: 0 10px 20px rgba(201, 168, 94, 0.4);
+        }
+
+        .package-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .package-image:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .package-card:hover .package-image img {
+            transform: scale(1.1);
+        }
+
+        .package-content {
+            padding: 30px;
+        }
+
+        .package-title {
+            font-size: 24px;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .package-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .package-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .package-details span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .package-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .package-price:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--light-brown);
+        }
+
+        .package-price span {
+            background-color: var(--white);
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .view-all-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .gallery:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom right, var(--light-beige) 49%, var(--white) 50%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .lightbox-nav button {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-nav button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* ===== CONTACT CTA ===== */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--dark-brown), var(--primary-brown));
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.3;
+        }
+
+        .contact-cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-cta .btn {
+            position: relative;
+            z-index: 2;
+            padding: 18px 45px;
+            font-size: 17px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(to right, var(--dark-brown), #3a2418);
+            color: var(--white);
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom right, var(--white) 49%, var(--dark-brown) 50%);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-column p {
+            color: var(--light-brown);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--light-brown);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-links a:before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 15px;
+        }
+
+        .footer-links a:hover:before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+            margin-top: 3px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            font-size: 14px;
+            color: var(--light-brown);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+            
+            .hero-content p {
+                font-size: 20px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .packages-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--dark-brown);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
+                margin-top: 10px;
+            }
+            
+            .hero {
+                height: 80vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .contact-cta h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .btn {
+                padding: 14px 28px;
+                font-size: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .package-card {
+                margin: 0 10px;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="TRACKS Adventure Safaris Logo" class="logo-image">
+                <div class="logo-text">
+                    <div class="logo-main">TRACKS</div>
+                    <div class="logo-subtitle">ADVENTURE SAFARIS & LODGES</div>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#packages">Safaris <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="okavango-delta.html">Okavango Delta Explorer</a>
+                            <a href="chobe-national-park.html">Chobe National Park Adventure</a>
+                            <a href="kalahari-desert.html">Kalahari Desert Expedition</a>
+                            <a href="botswana-highlights.html">Botswana Highlights Combo</a>
+                            <a href="luxury-wilderness.html">Luxury Wilderness Retreat</a>
+                            <a href="photography-safari.html">Photography Safari</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="custom-safari.html" class="custom-safari-link">
+                                <i class="fas fa-magic"></i> Custom Safari
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slideshow Section -->
+    <section class="hero">
+        <div class="hero-slideshow">
+            <!-- Slide 1 -->
+            <div class="slide active" style="background-image: url('assets/images/hero-slide-1.jpg');"></div>
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: url('assets/images/hero-slide-2.jpg');"></div>
+            <!-- Slide 3 -->
+            <div class="slide" style="background-image: url('assets/images/hero-slide-3.jpg');"></div>
+            <!-- Slide 4 -->
+            <div class="slide" style="background-image: url('assets/images/hero-slide-4.jpg');"></div>
+        </div>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1>Discover Botswana's Wilderness</h1>
+            <p>Premium safari experiences in Africa's most spectacular destinations. Small groups, expert guides, unforgettable adventures.</p>
+            <div class="hero-buttons">
+                <a href="#packages" class="btn">View Our Safaris</a>
+                <a href="contact.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        
+        <div class="slide-controls">
+            <div class="slide-dot active" data-slide="0"></div>
+            <div class="slide-dot" data-slide="1"></div>
+            <div class="slide-dot" data-slide="2"></div>
+            <div class="slide-dot" data-slide="3"></div>
+        </div>
+        
+        <div class="slide-nav">
+            <button class="slide-nav-btn prev-slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="slide-nav-btn next-slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Tracks Adventure Safaris</h2>
+                <p class="section-subtitle">100% Botswana-owned company providing authentic safari experiences since 2016</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story & Mission</h3>
+                    <p>Tracks Adventure Safaris & Lodges is a 100% Botswana owned company incorporated under the companies act in Maun, situated in the North West District. We were formed to satisfy the needs of fellow countrymen and international travelers by providing exceptional facility management services and assisting the government in its mandate of public-private partnership.</p>
+                    <p>Located in the new mall at plot 361 along the airport road opposite the museum, we are a business led by a dedicated, hardworking and passionate team fully owned by Ms. Onalenna Phillimon. Our mission is to bridge the gap in the mobile safari business by offering high quality, reasonably priced safari experiences entirely owned and operated by Batswana.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <h4>Local Expertise</h4>
+                            <p>Our guides have extensive knowledge of Botswana's ecosystems and wildlife behavior.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Sustainable Tourism</h4>
+                            <p>We prioritize eco-friendly practices and support local communities.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Small Groups</h4>
+                            <p>Maximum 8 guests per safari for personalized attention and minimal impact.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Premium Service</h4>
+                            <p>From booking to return, we ensure a seamless and memorable experience.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="about.html" class="btn" style="margin-top: 30px;">Learn More About Us</a>
+                </div>
+                
+                <div class="about-images">
+                    <div class="about-image">
+                        <img src="assets/images/about-1.jpg" alt="Our Safari Team">
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/images/about-2.jpg" alt="Safari Vehicle">
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/images/about-3.jpg" alt="Camp Setup">
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/images/about-4.jpg" alt="Guiding Experience">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safari Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Safari Packages</h2>
+                <p class="section-subtitle">Carefully curated safari experiences for every type of traveler</p>
+            </div>
+            
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card">
+                    <div class="package-badge">Popular</div>
+                    <div class="package-image">
+                        <img src="assets/images/okavango-package.jpg" alt="Okavango Delta">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Okavango Delta Explorer</h3>
+                        <p class="package-description">Journey through the world's largest inland delta, home to incredible biodiversity and stunning landscapes. Experience mokoro rides and walking safaris.</p>
+                        <div class="package-details">
+                            <span><i class="far fa-clock"></i> 5 Days / 4 Nights</span>
+                            <span><i class="fas fa-users"></i> Small Groups (Max 8)</span>
+                        </div>
+                        <div class="package-price"><span>$1,850 per person</span></div>
+                        <a href="okavango-delta.html" class="btn btn-primary" style="width: 100%;">View Details & Book</a>
+                    </div>
+                </div>
+                
+                <!-- Package 2 -->
+                <div class="package-card">
+                    <div class="package-badge">Best Seller</div>
+                    <div class="package-image">
+                        <img src="assets/images/chobe-package.jpg" alt="Chobe National Park">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Chobe National Park Adventure</h3>
+                        <p class="package-description">Experience Africa's largest elephant population with incredible game viewing. Enjoy river cruises and guided game drives in this wildlife-rich region.</p>
+                        <div class="package-details">
+                            <span><i class="far fa-clock"></i> 4 Days / 3 Nights</span>
+                            <span><i class="fas fa-users"></i> Small Groups (Max 6)</span>
+                        </div>
+                        <div class="package-price"><span>$1,450 per person</span></div>
+                        <a href="chobe-national-park.html" class="btn btn-primary" style="width: 100%;">View Details & Book</a>
+                    </div>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="package-card">
+                    <div class="package-badge">Unique Experience</div>
+                    <div class="package-image">
+                        <img src="assets/images/kalahari-package.jpg" alt="Kalahari Desert">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Kalahari Desert Expedition</h3>
+                        <p class="package-description">Discover the unique ecosystem of the Kalahari and its specially adapted wildlife. Experience the culture of the San people and breathtaking sunsets.</p>
+                        <div class="package-details">
+                            <span><i class="far fa-clock"></i> 6 Days / 5 Nights</span>
+                            <span><i class="fas fa-users"></i> Small Groups (Max 8)</span>
+                        </div>
+                        <div class="package-price"><span>$1,850 per person</span></div>
+                        <a href="kalahari-desert.html" class="btn btn-primary" style="width: 100%;">View Details & Book</a>
+                    </div>
+                </div>
+                
+                <!-- Custom Safari Package - Special Styling -->
+                <div class="package-card custom-safari-card">
+                    <div class="package-badge custom-badge">Design Your Own</div>
+                    <div class="package-image">
+                        <img src="assets/images/custom-safari.jpg" alt="Custom Safari Design">
+                        <div class="custom-overlay">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Tailor-Made Safari</h3>
+                        <p class="package-description">Create your dream safari experience. Choose destinations, duration, activities, and accommodation to match your preferences and budget.</p>
+                        <div class="package-details">
+                            <span><i class="fas fa-calendar-alt"></i> Flexible Duration</span>
+                            <span><i class="fas fa-map-marked-alt"></i> Multiple Destinations</span>
+                        </div>
+                        <div class="package-price custom-price"><span>Custom Quote</span></div>
+                        <a href="custom-safari.html" class="btn btn-primary custom-btn" style="width: 100%;">
+                            <i class="fas fa-pencil-alt"></i> Design Your Safari
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all-container">
+                <a href="#packages" class="btn">View All Safari Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Safari Gallery</h2>
+                <p class="section-subtitle">A visual journey through our safari experiences</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item" data-src="assets/images/gallery-1.jpg">
+                    <img src="assets/images/gallery-1.jpg" alt="Elephant in Okavango Delta">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Elephant in Okavango Delta</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-src="assets/images/gallery-2.jpg">
+                    <img src="assets/images/gallery-2.jpg" alt="Chobe River Sunset">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Chobe River Sunset</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-src="assets/images/gallery-3.jpg">
+                    <img src="assets/images/gallery-3.jpg" alt="Kalahari Desert Landscape">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Kalahari Desert Landscape</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-src="assets/images/gallery-4.jpg">
+                    <img src="assets/images/gallery-4.jpg" alt="Mokoro Excursion">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Mokoro Excursion</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item" data-src="assets/images/gallery-5.jpg">
+                    <img src="assets/images/gallery-5.jpg" alt="Lion Sighting">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Lion Sighting</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item" data-src="assets/images/gallery-6.jpg">
+                    <img src="assets/images/gallery-6.jpg" alt="Campfire Evening">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Campfire Evening</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all-container">
+                <a href="gallery.html" class="btn">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <button class="lightbox-close" id="lightboxClose">&times;</button>
+            <div class="lightbox-nav">
+                <button id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+                <button id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Ready for Your Adventure?</h2>
+            <p>Contact us today to start planning your unforgettable Botswana safari experience. Our team is ready to help you create the perfect itinerary.</p>
+            <a href="contact.html" class="btn">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TRACKS ADVENTURE SAFARIS</h3>
+                    <p>"Life is a safari, let's conquer it together"</p>
+                    <p>Providing authentic, premium safari experiences in Botswana's most spectacular wilderness areas since 2016.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="#packages">Safari Packages</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="Tracks Safari terms and conditions.pdf" target="_blank">Terms & Conditions</a>
+                </div>
+                
+                <div class="footer-column contact-info">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +267 72114790</p>
+                    <p><i class="fas fa-phone"></i> +267 73654794</p>
+                    <p><i class="fas fa-phone"></i> +267 74207072</p>
+                    <p><i class="fas fa-envelope"></i> tracksadventuresafaris2016@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New mall opposite Museum, Maun, Botswana</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TRACKS ADVENTURE SAFARIS & LODGES. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== HEADER SCROLL EFFECT =====
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== HERO SLIDESHOW =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            const prevBtn = document.querySelector('.prev-slide');
+            const nextBtn = document.querySelector('.next-slide');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+
+            function startSlideshow() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+
+            function stopSlideshow() {
+                clearInterval(slideInterval);
+            }
+
+            // Event Listeners
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                stopSlideshow();
+                startSlideshow();
+            });
+
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                stopSlideshow();
+                startSlideshow();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                    stopSlideshow();
+                    startSlideshow();
+                });
+            });
+
+            // Pause on hover
+            const hero = document.querySelector('.hero');
+            hero.addEventListener('mouseenter', stopSlideshow);
+            hero.addEventListener('mouseleave', startSlideshow);
+
+            // Start slideshow
+            startSlideshow();
+
+            // ===== MOBILE MENU =====
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+            // ===== GALLERY LIGHTBOX =====
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightboxModal = document.getElementById('lightboxModal');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            let currentImageIndex = 0;
+            const imageSources = [];
+
+            // Collect all image sources
+            galleryItems.forEach((item, index) => {
+                const src = item.getAttribute('data-src');
+                imageSources.push(src);
+                
+                item.addEventListener('click', function() {
+                    currentImageIndex = index;
+                    lightboxImage.src = src;
+                    lightboxModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Lightbox navigation
+            function showLightboxImage(index) {
+                currentImageIndex = (index + imageSources.length) % imageSources.length;
+                lightboxImage.src = imageSources[currentImageIndex];
+            }
+
+            lightboxClose.addEventListener('click', function() {
+                lightboxModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            lightboxPrev.addEventListener('click', function() {
+                showLightboxImage(currentImageIndex - 1);
+            });
+
+            lightboxNext.addEventListener('click', function() {
+                showLightboxImage(currentImageIndex + 1);
+            });
+
+            // Close lightbox on background click
+            lightboxModal.addEventListener('click', function(e) {
+                if (e.target === lightboxModal) {
+                    lightboxModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Keyboard navigation for lightbox
+            document.addEventListener('keydown', function(e) {
+                if (lightboxModal.style.display === 'flex') {
+                    if (e.key === 'Escape') {
+                        lightboxModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                    if (e.key === 'ArrowLeft') {
+                        showLightboxImage(currentImageIndex - 1);
+                    }
+                    if (e.key === 'ArrowRight') {
+                        showLightboxImage(currentImageIndex + 1);
+                    }
+                }
+            });
+
+            // ===== SMOOTH SCROLLING =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href === '#') return;
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

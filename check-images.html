@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check All Images</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .image-container { margin: 20px; padding: 10px; border: 1px solid #ccc; }
+        img { max-width: 300px; margin: 10px; border: 2px solid #ddd; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Testing All Website Images</h1>
+    
+    <div class="image-container">
+        <h2>About Page Images:</h2>
+        <p>about-hero.jpg: <img src="assets/images/about-hero.jpg" alt="about-hero"></p>
+        <p>about-story-1.jpg: <img src="assets/images/about-story-1.jpg" alt="about-story-1"></p>
+        <p>about-story-2.jpg: <img src="assets/images/about-story-2.jpg" alt="about-story-2"></p>
+        <p>about-story-3.jpg: <img src="assets/images/about-story-3.jpg" alt="about-story-3"></p>
+        <p>about-story-4.jpg: <img src="assets/images/about-story-4.jpg" alt="about-story-4"></p>
+    </div>
+    
+    <div class="image-container">
+        <h2>Contact Page Images:</h2>
+        <p>contact-hero.jpg: <img src="assets/images/contact-hero.jpg" alt="contact-hero"></p>
+    </div>
+    
+    <div class="image-container">
+        <h2>Luxury Wilderness Images:</h2>
+        <p>luxury-wilderness-hero.jpg: <img src="assets/images/luxury-wilderness-hero.jpg" alt="luxury-wilderness-hero"></p>
+        <p>luxury-camp-1.jpg: <img src="assets/images/luxury-camp-1.jpg" alt="luxury-camp-1"></p>
+        <p>luxury-camp-2.jpg: <img src="assets/images/luxury-camp-2.jpg" alt="luxury-camp-2"></p>
+        <p>luxury-camp-3.jpg: <img src="assets/images/luxury-camp-3.jpg" alt="luxury-camp-3"></p>
+    </div>
+    
+    <div class="image-container">
+        <h2>Botswana Highlights:</h2>
+        <p>botswana-highlights-hero.jpg: <img src="assets/images/botswana-highlights-hero.jpg" alt="botswana-highlights-hero"></p>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onload = function() {
+                    this.style.border = '2px solid green';
+                };
+                img.onerror = function() {
+                    this.style.border = '2px solid red';
+                    const parent = this.parentElement;
+                    parent.innerHTML += ' <span style="color:red">(MISSING!)</span>';
+                };
+            });
+        });
+    </script>
+</body>
+</html>
